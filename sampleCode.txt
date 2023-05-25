@@ -1,0 +1,21 @@
+a =''
+structure = [[['X'],['X'],['X']],[['X'],['X'],['X']],[['X'],['X'],['X']]]
+for i in structure:
+    a += str(i[2][0])
+if a == 'XXX':
+    print(True)
+else:
+    print(False)
+print(a)
+___
+True
+XXX
+----------------------------------------------
+'''    
+[[[0], [1], [2]], [[], [], []], [[], [], []]]
+    [     0      ]  [     1    ]  [    2     ]
+There are 2 ways of quiting
+1.count the number of choices chosen and quit when it reaches 9
+2. end when there are 3 same symbols in a row. 
+3. 
+'''

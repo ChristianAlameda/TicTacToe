@@ -1,0 +1,55 @@
+[structure
+    [0 for i in structure[0]
+        0[X],
+        1[X],
+        2[X]
+    ],
+    [1 for i in structre[1]
+        0[X],
+        1[X],
+        2[X]
+    ],
+    [2 for i in structure[2]
+        for j in i
+        0[X],
+        1[X],
+        2[X]
+    ]
+]
+'''
+To win
+You need to have 3 either O's in a row
+You need to have 3 either X's in a row
+1.horizontally
+X X X (*0,0* | *0,1 | *0,2)
+O O X (1,0 | 1,1 | 1,2)
+O O O (2,0 | 2,1 | 2,2)
+if all in row 0 is all X or all Y either X or Y won
+
+2. vertically
+X O O (*0,0 | 0,1 | 0,2)
+X O X (*1,0 | 1,1 | 1,2)
+X X O (*2,0 | 2,1 | 2,2)
+if all in col 0 is all X or all Y either X or Y won
+
+3. diagonally
+X O O (*0,0 | 0,1 | 0,2)
+O X X (1,0 | *1,1 | *1,2)
+O O X (2,0 | 2,1 | *2,2)
+
+O O X (0,0 | 0,1 | *0,2)
+O X X (1,0 | *1,1 | *1,2)
+X O O (*2,0 | 2,1 | 2,2)
+
+
+if 0,0 1,1 2,2 are all X or all Y either X or Y won
+if 0,2 1,1 2,0 are all X or all Y either X or Y won
+These three examples can be done with O as well
+We need to constantly check if there is 3 in a row
+at any moment
+
+To tie
+All 9 slots need to be filled
+A win cannot be present
+They decide they want to end in a draw
+'''

@@ -1,0 +1,16 @@
+'''
+
+   | x | x | x |
+   
+   | x | x | x |
+   
+   | x | x | x |
+
+'''
+#1. Create a list going vertically
+#2. Create a list going horizontally
+#3. Allow player 1 to pick a slot 
+#4. Do not allow player 2 to pick what has been picked
+#5. Allow player 2 to pick
+#6. Do not allow player 1 to pick what has been picked
+#7. Continue until there is either a win or not enoough slots open
