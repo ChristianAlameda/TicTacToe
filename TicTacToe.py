@@ -7,6 +7,17 @@ class TicTacToe:
         self.num = 0
         self.structure = []
         self.selected = []
+        self.exchange = {
+            1:[0,0],
+            2:[0,1],
+            3:[0,2],
+            4:[1,0],
+            5:[1,1],
+            6:[1,2],
+            7:[2,0],
+            8:[2,1],
+            9:[2,2],
+        }
         
     def structureCreation(self):
         for i in range(0,self.col):
@@ -27,19 +38,13 @@ class TicTacToe:
                     
                     self.mapMaker()
                     self.showSelected()
-                    colSel = input("ENTER THE COLUMN NUMBER YOU WOULD LIKE: ")
-                    rowSel = input("ENTER THE ROW NUMBER YOU WOULD LIKE: ")
-                    while (len(colSel) or len(rowSel)) == 0:
-                        colSel = input("ENTER THE COLUMN NUMBER YOU WOULD LIKE: ")
-                        rowSel = input("ENTER THE ROW NUMBER YOU WOULD LIKE: ")
+                    selection = int(input("ENTER THE NUMBER YOU WOULD LIKE: "))
+                    while selection < 1 or selection > 9:
+                        selection = int(input("ENTER THE NUMBER YOU WOULD LIKE: "))
                         print('\n')
-                    colSel = int(colSel)
-                    rowSel = int(rowSel)
-                    while (colSel or rowSel) > 2:
-                        colSel = int(input("ENTER THE COLUMN NUMBER YOU WOULD LIKE: "))
-                        rowSel = int(input("ENTER THE ROW NUMBER YOU WOULD LIKE: "))
-                        print('\n')
-                    self.structure[colSel][rowSel].append('X')
+                    
+                    selection = self.exchange[selection]
+                    self.structure[selection[0]][selection[1]].append('X')
                     self.num+=1
                     X = False
 
@@ -72,21 +77,13 @@ class TicTacToe:
                         
                     self.mapMaker()
                     self.showSelected()
-                    colSel = input("ENTER THE COLUMN NUMBER YOU WOULD LIKE: ")
-                    rowSel = input("ENTER THE ROW NUMBER YOU WOULD LIKE: ")
-                    while (len(colSel) or len(rowSel)) == 0:
-                        colSel = input("ENTER THE COLUMN NUMBER YOU WOULD LIKE: ")
-                        rowSel = input("ENTER THE ROW NUMBER YOU WOULD LIKE: ")
-                        print('\n')
-                    colSel = int(colSel)
-                    rowSel = int(rowSel)
-                    while (colSel or rowSel) > 2:
-                        colSel = int(input("ENTER THE COLUMN NUMBER YOU WOULD LIKE: "))
-                        rowSel = int(input("ENTER THE ROW NUMBER YOU WOULD LIKE: "))
+                    selection = int(input("ENTER THE NUMBER YOU WOULD LIKE: "))
+                    while selection < 1 or selection > 9:
+                        selection = int(input("ENTER THE NUMBER YOU WOULD LIKE: "))
                         print('\n')
                     
-                    self.structure[colSel][rowSel].append('O')
-                    
+                    selection = self.exchange[selection]
+                    self.structure[selection[0]][selection[1]].append('O')
                     self.num+=1
                     O = False
                     self.picker()
@@ -182,24 +179,27 @@ class TicTacToe:
     
     def winning(self):
         self.showSelected()
+        msg = ''
         if self.checkWinVertically() == True:
-            print('GAMEOVER THROUGH VERTICAL')
+            msg += ' GAMEOVER THROUGH VERTICAL'
             
         elif self.checkWinHorizontal() == True:
-            print('GAMEOVER THROUGH HORIZONTAL')
+            msg += ' GAMEOVER THROUGH HORIZONTAL'
                  
         elif self.checkWinDiagonally() == True:
-            print('GAMEOVERTHROUGH DIAGONOAL')
+            msg += ' GAME OVER THROUGH DIAGONOAL'
             
         elif (self.checkWinVertically() and self.checkWinHorizontal() and self.checkWinDiagonally()) == False:
-            print("GAMEOVER THROUGH CAT'S GAME")
+            msg += " GAMEOVER THROUGH CAT'S GAME"
+        
+        print('Result: ', msg)
             
     def mapMaker(self):
-        print('(0,0) | (0,1) | (0,2)')
-        print('------|-------|------')
-        print('(1,0) | (1,1) | (1,2)')
-        print('------|-------|------')
-        print('(2,0) | (2,1) | (2,2)\n')
+        print('1 | 2 | 3')
+        print('--|---|--')
+        print('4 | 5 | 6')
+        print('--|---|--')
+        print('7 | 8 | 9\n')
         
     def showSelected(self):
         #self.structure[0][2][0] + self.structure[1][1][0] + self.structure[2][0][0]
