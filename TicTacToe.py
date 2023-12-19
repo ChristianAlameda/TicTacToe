@@ -8,15 +8,17 @@ class TicTacToe:
         self.structure = []
         self.selected = []
         self.exchange = {
-            1:[0,0],
-            2:[0,1],
-            3:[0,2],
+            7:[0,0],
+            8:[0,1],
+            9:[0,2],
+            
             4:[1,0],
             5:[1,1],
             6:[1,2],
-            7:[2,0],
-            8:[2,1],
-            9:[2,2],
+            
+            1:[2,0],
+            2:[2,1],
+            3:[2,2],
         }
         
     def structureCreation(self):
@@ -195,11 +197,11 @@ class TicTacToe:
         print('Result: ', msg)
             
     def mapMaker(self):
-        print('1 | 2 | 3')
+        print('7 | 8 | 9')
         print('--|---|--')
         print('4 | 5 | 6')
         print('--|---|--')
-        print('7 | 8 | 9\n')
+        print('1 | 2 | 3\n')
         
     def showSelected(self):
         #self.structure[0][2][0] + self.structure[1][1][0] + self.structure[2][0][0]
